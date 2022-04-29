@@ -1,6 +1,6 @@
 @echo off
 
-rem Allow the container to access the AWS credentials and metadata APIs. It the batch equivalent of the script found at
+rem Allow the container to access the AWS credentials and metadata APIs. It is the batch equivalent of the script found at
 rem https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html.
 
 setlocal enabledelayedexpansion
