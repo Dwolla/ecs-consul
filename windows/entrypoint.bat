@@ -17,6 +17,7 @@ route.exe add 169.254.170.2 MASK 255.255.255.255 if %IFINDEX% %GATEWAY% > nul 2>
 route.exe add 169.254.169.254 MASK 255.255.255.255 if %IFINDEX% %GATEWAY% > nul 2>&1
 
 for /f "tokens=1" %%a in ('curl.exe -s http://169.254.169.254/latest/meta-data/local-ipv4') do ( set LOCALIPV4=%%a )
-set *=%*:{{ LocalIpV4 }}=!LOCALIPV4!%
+set "NEWARGS=%*%"
+set NEWARGS=%NEWARGS:{{ LocalIpV4 }}=!LOCALIPV4!% 
 
-C:\Consul\consul.exe %*%
+C:\Consul\consul.exe %NEWARGS%
